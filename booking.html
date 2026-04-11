@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Book Ameerul Iskandar as your professional emcee. Submit your enquiry and receive a personalised quote within 24 hours." />
+  <title>Book Ameerul Iskandar | Professional Emcee</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="booking-page-bg">
+
+  <!-- ================================================
+       NAVIGATION
+       ================================================ -->
+  <nav class="navbar scrolled" id="navbar">
+    <a href="index.html" class="nav-logo">Ameerul<span>Iskandar</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#portfolio">Portfolio</a></li>
+      <li><a href="index.html#testimonials">Testimonials</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="booking.html" class="btn btn-gold">Book Me</a></li>
+    </ul>
+  </nav>
+
+  <!-- ================================================
+       BOOKING HERO
+       ================================================ -->
+  <div class="booking-hero">
+    <div class="container">
+      <span class="section-label">Availability &amp; Enquiry</span>
+      <h1>Book <span class="gold-text">Ameerul Iskandar</span></h1>
+      <div class="gold-divider"></div>
+      <p>Fill in the details below and I'll respond with availability and a personalised quote within 24 hours.</p>
+      <div class="booking-hero-dots">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================
+       BOOKING FORM
+       ================================================ -->
+  <div class="booking-form-wrap">
+    <div class="container">
+
+      <!-- SUCCESS MESSAGE (hidden by default) -->
+      <div class="success-message" id="successMessage">
+        <div class="success-icon">✓</div>
+        <h2>Enquiry <span class="gold-text">Received!</span></h2>
+        <p>
+          Thank you for reaching out. I'll review your event details and get back to you
+          within <strong style="color:var(--gold);">24 hours</strong> with availability and a personalised quote.
+        </p>
+        <a href="index.html" class="btn btn-gold">Back to Home</a>
+      </div>
+
+      <!-- FORM CARD -->
+      <div class="form-card" id="formCard">
+        <form id="bookingForm" novalidate>
+
+          <!-- Section 1: Personal Details -->
+          <div class="form-section-title">Personal Details</div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Full Name <span class="req">*</span></label>
+              <input type="text" id="fullName" name="fullName" placeholder="e.g. Sarah Mitchell" autocomplete="name" />
+              <div class="field-error" id="fullNameError">Please enter your full name.</div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address <span class="req">*</span></label>
+              <input type="email" id="email" name="email" placeholder="e.g. sarah@company.com" autocomplete="email" />
+              <div class="field-error" id="emailError">Please enter a valid email address.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number <span class="req">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="e.g. +60 12-345 6789" autocomplete="tel" />
+              <div class="field-error" id="phoneError">Please enter your phone number.</div>
+            </div>
+            <div class="form-group">
+              <label for="company">Company / Organisation</label>
+              <input type="text" id="company" name="company" placeholder="e.g. Apex Financial Group" autocomplete="organization" />
+            </div>
+          </div>
+
+          <div class="form-spacer"></div>
+
+          <!-- Section 2: Event Details -->
+          <div class="form-section-title">Event Details</div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="eventType">Event Type <span class="req">*</span></label>
+              <select id="eventType" name="eventType">
+                <option value="" disabled selected>Select event type</option>
+                <option value="corporate">Corporate Event</option>
+                <option value="wedding">Wedding</option>
+                <option value="gala">Gala Dinner</option>
+                <option value="launch">Product Launch</option>
+                <option value="conference">Conference / Summit</option>
+                <option value="awards">Awards Ceremony</option>
+                <option value="other">Other</option>
+              </select>
+              <div class="field-error" id="eventTypeError">Please select an event type.</div>
+            </div>
+            <div class="form-group">
+              <label for="venue">Venue / Location <span class="req">*</span></label>
+              <input type="text" id="venue" name="venue" placeholder="e.g. Grand Hyatt, Kuala Lumpur" />
+              <div class="field-error" id="venueError">Please enter the event venue.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <!-- Custom Date Picker -->
+            <div class="form-group">
+              <label>Event Date <span class="req">*</span></label>
+              <div class="custom-datepicker" id="datepickerWrap">
+                <div class="picker-input" id="dateDisplay" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+                  <svg class="picker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  <span id="dateDisplayText">Select a date</span>
+                  <svg class="picker-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="picker-dropdown" id="calendarDropdown" role="dialog" aria-label="Date picker">
+                  <div class="cal-header">
+                    <button type="button" class="cal-nav" id="calPrev" aria-label="Previous month">&#8249;</button>
+                    <div class="cal-month-year">
+                      <span id="calMonthLabel"></span>
+                      <span id="calYearLabel"></span>
+                    </div>
+                    <button type="button" class="cal-nav" id="calNext" aria-label="Next month">&#8250;</button>
+                  </div>
+                  <div class="cal-weekdays">
+                    <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+                  </div>
+                  <div class="cal-days" id="calDays"></div>
+                  <div class="cal-legend">
+                    <span class="legend-dot legend-dot-booked"></span><span>Unavailable</span>
+                    <span class="legend-dot legend-dot-today"></span><span>Today</span>
+                  </div>
+                </div>
+              </div>
+              <input type="hidden" id="eventDate" name="eventDate" />
+              <div class="field-error" id="eventDateError">Please select the event date.</div>
+            </div>
+
+            <!-- Custom Time Picker -->
+            <div class="form-group">
+              <label>Event Start Time <span class="req">*</span></label>
+              <div class="custom-timepicker" id="timepickerWrap">
+                <div class="picker-input" id="timeDisplay" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+                  <svg class="picker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 12"/></svg>
+                  <span id="timeDisplayText">Select a time</span>
+                  <svg class="picker-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="picker-dropdown" id="timeDropdown" role="dialog" aria-label="Time picker">
+                  <div class="time-picker-inner">
+                    <div class="time-col-wrap">
+                      <div class="time-col-label">Hour</div>
+                      <div class="time-col" id="hourCol"></div>
+                    </div>
+                    <div class="time-separator">:</div>
+                    <div class="time-col-wrap">
+                      <div class="time-col-label">Min</div>
+                      <div class="time-col" id="minCol"></div>
+                    </div>
+                    <div class="time-col-wrap">
+                      <div class="time-col-label">AM/PM</div>
+                      <div class="time-col" id="ampmCol">
+                        <div class="time-item" data-val="AM">AM</div>
+                        <div class="time-item" data-val="PM">PM</div>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="button" class="time-confirm-btn" id="timeConfirm">Confirm Time</button>
+                </div>
+              </div>
+              <input type="hidden" id="eventTime" name="eventTime" />
+              <div class="field-error" id="eventTimeError">Please select the event start time.</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="duration">Event Duration <span class="req">*</span></label>
+            <select id="duration" name="duration">
+              <option value="" disabled selected>Select duration</option>
+              <option value="2hrs">2 Hours</option>
+              <option value="4hrs">4 Hours</option>
+              <option value="fullday">Full Day (8+ Hours)</option>
+            </select>
+            <div class="field-error" id="durationError">Please select the event duration.</div>
+          </div>
+
+          <div class="form-spacer"></div>
+
+          <!-- Section 3: Package Selection -->
+          <div class="form-section-title">Package Selection <span style="color:var(--text-muted); font-size:0.75rem; font-weight:400; text-transform:none; letter-spacing:0;">— choose one <span class="req">*</span></span></div>
+
+          <div class="form-group">
+            <div class="radio-group" id="packageGroup">
+
+              <label class="radio-option" id="radio-basic">
+                <input type="radio" name="package" value="basic" />
+                <div>
+                  <div class="radio-label">
+                    Basic
+                    <small>Up to 2 hours · Script preparation · Pre-event consultation</small>
+                  </div>
+                </div>
+                <div class="radio-price">from $800</div>
+              </label>
+
+              <label class="radio-option" id="radio-standard">
+                <input type="radio" name="package" value="standard" />
+                <div>
+                  <div class="radio-label">
+                    Standard <span style="font-size:0.7rem; color:var(--gold); background:rgba(201,168,76,0.1); padding:0.1rem 0.5rem; border-radius:4px; margin-left:6px;">Popular</span>
+                    <small>Up to 4 hours · Full production support · On-site rehearsal · Audience engagement</small>
+                  </div>
+                </div>
+                <div class="radio-price">from $1,500</div>
+              </label>
+
+              <label class="radio-option" id="radio-premium">
+                <input type="radio" name="package" value="premium" />
+                <div>
+                  <div class="radio-label">
+                    Premium
+                    <small>Full day · Multi-stage management · VIP hosting · Bilingual available</small>
+                  </div>
+                </div>
+                <div class="radio-price">from $2,800</div>
+              </label>
+
+            </div>
+            <div class="field-error" id="packageError">Please select a package.</div>
+          </div>
+
+          <div class="form-spacer"></div>
+
+          <!-- Section 4: Additional Info -->
+          <div class="form-section-title">Additional Information</div>
+
+          <div class="form-group">
+            <label for="notes">Additional Notes</label>
+            <textarea id="notes" name="notes" placeholder="Tell me more about your event — theme, dress code, special requirements, number of guests, or anything else I should know..."></textarea>
+          </div>
+
+          <!-- Privacy note -->
+          <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:1.8rem; line-height:1.7;">
+            ✦ Your information is kept confidential and will only be used to respond to your enquiry.
+            Fields marked with <span style="color:var(--gold);">*</span> are required.
+          </p>
+
+          <button type="submit" class="btn btn-gold submit-btn" id="submitBtn">
+            Submit Booking Enquiry
+          </button>
+
+        </form>
+      </div><!-- /.form-card -->
+
+    </div>
+  </div>
+
+  <!-- ================================================
+       FOOTER
+       ================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Ameerul<span>Iskandar</span></div>
+        <nav class="footer-nav">
+          <a href="index.html#about">About</a>
+          <a href="index.html#services">Services</a>
+          <a href="index.html#portfolio">Portfolio</a>
+          <a href="index.html#testimonials">Testimonials</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+        <div class="footer-divider"></div>
+        <p class="footer-copy">
+          &copy; 2026 <a href="index.html">Ameerul Iskandar</a>. Professional Emcee &amp; Event Host. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/pickers.js"></script>
+</body>
+</html>
