@@ -2,6 +2,7 @@
 // =============================================
 // MOCK DATA — replace with DB queries later
 // =============================================
+require_once __DIR__ . '/config.php';
 
 function get_bookings() {
     return [
@@ -32,7 +33,7 @@ function get_stats() {
     $pending   = 0; $confirmed = 0; $completed = 0; $cancelled = 0;
     $monthRevenue = 0;
 
-    $packagePrices = ['Basic'=>800, 'Standard'=>1500, 'Premium'=>2800];
+    $packagePrices = PKG_PRICES;
 
     foreach ($all as $b) {
         if ($b['status'] === 'Pending')   $pending++;
@@ -49,7 +50,7 @@ function get_stats() {
 
 function get_monthly_revenue() {
     $all = get_bookings();
-    $packagePrices = ['Basic'=>800, 'Standard'=>1500, 'Premium'=>2800];
+    $packagePrices = PKG_PRICES;
     $months = [];
     foreach ($all as $b) {
         if (!in_array($b['status'], ['Confirmed','Completed'])) continue;
@@ -68,4 +69,35 @@ function status_class($status) {
         'Cancelled'  => 'badge-cancelled',
         default      => ''
     };
+}
+
+function get_upcoming_events($limit = 3) {
+    $today = date('Y-m-d');
+    $upcoming = [];
+    foreach (get_bookings() as $b) {
+        if (in_array($b['status'], ['Confirmed','Pending']) && $b['date'] >= $today) {
+            $upcoming[] = $b;
+        }
+    }
+    usort($upcoming, fn($a,$b) => strcmp($a['date'], $b['date']));
+    return array_slice($upcoming, 0, $limit);
+}
+
+function get_next_event() {
+    $events = get_upcoming_events(1);
+    return $events[0] ?? null;
+}
+
+function get_package_breakdown() {
+    $counts = ['Basic'=>0,'Standard'=>0,'Premium'=>0];
+    foreach (get_bookings() as $b) {
+        if (isset($counts[$b['package']])) $counts[$b['package']]++;
+    }
+    return $counts;
+}
+
+function days_until($dateStr) {
+    $today = new DateTime(date('Y-m-d'));
+    $event = new DateTime($dateStr);
+    return (int)$today->diff($event)->days;
 }

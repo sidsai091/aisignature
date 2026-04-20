@@ -27,10 +27,10 @@ function initRevenueChart(canvasId, labels, values) {
   const canvas = document.getElementById(canvasId);
   if (!canvas || typeof Chart === 'undefined') return;
 
-  const gold    = '#c9a84c';
-  const goldBg  = 'rgba(201,168,76,0.08)';
-  const muted   = '#7b85a3';
-  const border  = 'rgba(201,168,76,0.15)';
+  const gold    = '#b8860b';
+  const goldBg  = 'rgba(184,134,11,0.08)';
+  const muted   = '#8a93a8';
+  const border  = 'rgba(184,134,11,0.15)';
 
   new Chart(canvas, {
     type: 'bar',
@@ -53,7 +53,7 @@ function initRevenueChart(canvasId, labels, values) {
       plugins: {
         legend: { display: false },
         tooltip: {
-          backgroundColor: '#0f1629',
+          backgroundColor: '#ffffff',
           borderColor: border,
           borderWidth: 1,
           titleColor: gold,
@@ -68,11 +68,11 @@ function initRevenueChart(canvasId, labels, values) {
       },
       scales: {
         x: {
-          grid: { color: 'rgba(255,255,255,0.03)' },
+          grid: { color: 'rgba(30,36,51,0.06)' },
           ticks: { color: muted, font: { size: 11 } }
         },
         y: {
-          grid: { color: 'rgba(255,255,255,0.04)' },
+          grid: { color: 'rgba(30,36,51,0.06)' },
           ticks: {
             color: muted,
             font: { size: 11 },
